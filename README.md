@@ -92,8 +92,8 @@ Cardul afișat ar trebui centrat în pagină. În CSS, centrarea unui element î
 ```
 .centrat {
    ...
-   margin: 20px auto;
-   width: 370px;
+   margin: 50px auto;
+   width: 372px;
    ...
 }
 ```
