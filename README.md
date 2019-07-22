@@ -183,3 +183,98 @@ Ca urmare s-a modificat pagina astfel:
 </html>
 ```
 
+## Realizarea variantei "statice"
+La realizarea unei pagini dinamice, având conținuturi care provin din accesarea altor resurse (baze de date de cele mai multe ori) se începe prin realizarea unei variante statice. În această variantă se pot rezolva toate problemele legate de stilizare. Pasul următor este înlocuirea conținuturilor care, în timpul funcționării aplicației, vor fi înlocuite, cu șiruri de forma `{nume}`. În acest mod se pregătește scrierea codului JavaScript.
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Card</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		h1, p {
+			margin: 20px auto;
+			text-align: center;
+		}
+
+		.container {
+			width: 372px;
+			margin: 50px auto;
+		}
+
+		.flip-card {
+			margin-top:30px;
+			background-color: transparent;
+			width: 370px;
+			height: 430px;
+			perspective: 1000px;
+		}
+
+		.flip-card-inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		}
+
+		.flip-card:hover .flip-card-inner {
+			transform: rotateY(180deg);
+		}
+
+		.flip-card-front, .flip-card-back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.flip-card-front {
+			background-color: #ccc;
+			color: black;
+		}
+
+		.flip-card-back {
+			background-color: #2980b9;
+			color: white;
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Card: 1 / 20</h1>
+		<p>Hover over the image below:</p>
+
+		<div class="flip-card">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					<img id="pozafront" src="imagini/img1.jpg">
+					<h1>Electric car</h1>  <!-- Electric car -->
+				</div>
+				<div class="flip-card-back">
+					<img id="pozaback" src="imagini/img1.jpg">
+					<h1>Automobil electric</h1> 
+					<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>
+					<audio controls>
+						<source id="sursa" src="audio/audio1.mp3" type="audio/mpeg">
+					</audio>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+```
+
+Rezultat:
+
+
+
