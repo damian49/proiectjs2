@@ -83,7 +83,7 @@ Pentru stilizare s-a folosit următorul ansamblu de reguli:
 
 Din ele s-a asamblat prima versiune a aplicației, *card1.html*. Rezultat:
 
-<img src="/imagini/card1.png" alt="Img. 2" width="405" height="512">
+<img src="/imagini/card1.png" alt="Img. 2" width="324" height="409">
 
 
 
