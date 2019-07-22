@@ -22,7 +22,7 @@ Codul HTML5 folosit este:
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+      <img src="imagini/img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
     </div>
     <div class="flip-card-back">
       <h1>John Doe</h1> 
@@ -81,5 +81,9 @@ Pentru stilizare s-a folosit următorul ansamblu de reguli:
 }
 ```
 
-Din ele s-a asamblat prima versiune a aplicației, card1.html.
+Din ele s-a asamblat prima versiune a aplicației, *card1.html*. Rezultat:
+
+
+
+
 
