@@ -276,5 +276,6 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 
 Rezultat:
 
+<img src="/imagini/app1.png" alt="Img. 3">
 
 
