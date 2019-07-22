@@ -85,6 +85,101 @@ Din ele s-a asamblat prima versiune a aplicației, *card1.html*. Rezultat:
 
 <img src="/imagini/card1.png" alt="Img. 2" width="324" height="409">
 
+## Primele modificări...
 
+Cardul afișat ar trebui centrat în pagină. În CSS, centrarea unui element în cadrul blocului în care este afișat se realizează folosind proprietatea *margin*:
 
+```
+.centrat {
+   ...
+   margin: 20px auto;
+   ...
+}
+```
+Cei 20px se referă la mărimea elementului margin pentru latura de sus și de jos iar auto indică browser-ului centrarea pe orizontală.
+
+Ca urmare s-a modificat pagina astfel:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Card</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		h1, p {
+			margin: 20px auto;
+			text-align: center;
+		}
+
+		.container {
+			width: 372px;
+			margin: 50px auto;
+		}
+
+		.flip-card {
+			margin-top:30px;
+			background-color: transparent;
+			width: 370px;
+			height: 390px;
+			perspective: 1000px;
+		}
+
+		.flip-card-inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		}
+
+		.flip-card:hover .flip-card-inner {
+			transform: rotateY(180deg);
+		}
+
+		.flip-card-front, .flip-card-back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.flip-card-front {
+			background-color: #ccc;
+			color: black;
+		}
+
+		.flip-card-back {
+			background-color: #2980b9;
+			color: white;
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Card: 1 / 20</h1>
+		<div class="flip-card">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					<img src="imagini/img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+				</div>
+				<div class="flip-card-back">
+					<h1>John Doe</h1> 
+					<p>Architect & Engineer</p> 
+					<p>We love that guy</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+```
 
