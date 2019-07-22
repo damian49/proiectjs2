@@ -280,5 +280,114 @@ Rezultat:
 
 Din examinarea codului se observă că, pentru a funcționa, pagina accesează fișierul */imagini/img1.jpg* și *audio/audio1.mp3*. Acestea sunt disponibile pe site, în subdirectoarele */imagini* și */audio*.
 
+## Realizarea variantei dinamice a paginii
+După testarea variantei statice, pasul următor este realizarea unei variante dinamice a paginii. Aceasta presupune crearea unei surse de date (de regulă un șir de obiecte), crearea unor șiruri de caractere care conțin pîrți care vor fi substituite cu valorile efective și scrierea codului care asigură înlocuirea dinamică a părților din document cu valorile efective, furnizate de sursa de date, și trecerea la articolul următor.
+După realizarea acestor pași, codul aplicației este următorul:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Card</title>
+	<link rel="stylesheet" type="text/css" href="css/stil.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Card: 1 / 20</h1>
+		<p>Hover over the image below:</p>
+
+		<div class="flip-card">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					<img id="pozafront" src="imagini/img1.jpg">
+					<h1>Electric car</h1>
+				</div>
+				<div class="flip-card-back">
+					<img id="pozaback" src="imagini/img1.jpg">
+					<h1>Automobil electric</h1> 
+					<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>
+					<audio controls>
+						<source id="sursa" src="audio/audio1.mp3" type="audio/mpeg">
+					</audio>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+  var obiecte = [
+    {id: 1, dificultate: 1, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "voce/sunet1.mp3"},
+    {id: 2, dificultate: 1, imagine: "imagini/img2.jpg", numero: "Trotinetă electrică", numeen: "Electric scooter", sunet: "voce/sunet1.mp3"},
+    {id: 3, dificultate: 1, imagine: "imagini/img3.jpg", numero: "Bicicletă", numeen: "Bycicle", sunet: "voce/sunet1.mp3"}
+  ];
+
+  var i = 0; // Ob afisat initial
+
+  var cfront = '<img src="{pozafront}" src="">';
+  cfront += '<h1>{titluen}</h1>';
+
+  var cback = '<img src="{pozaback}">';
+  cback += '<h1>{titluro}</h1>';
+  cback += '<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>';
+  cback += '<audio controls><source id="sursa" src="{sunet}" type="audio/mpeg"></audio>';
+
+  document.querySelector("body").onload = function() {
+    afisez();
+  };
+
+  function afisez() {
+    //  preiau obiectul avand class="flip-card-front"
+    var front = document.querySelector(".flip-card-front");
+
+    // Inlocuiesc in cfront {titluen} si {pozafront}
+    var frontH = cfront.replace("{titluen}", obiecte[i].numeen)
+                       .replace("{pozafront}", obiecte[i].imagine);
+    front.innerHTML = frontH;
+
+    //  preiau obiectul avand class="flip-card-back"
+    var back = document.querySelector(".flip-card-back");
+
+    // Inlocuiesc in cback {titluro} si {pozafront}
+    backH = cback.replace("{titluro}", obiecte[i].numero)
+                 .replace("{pozaback}", obiecte[i].imagine)
+                 .replace("{sunet}", obiecte[i].sunet);
+    back.innerHTML = backH;
+  }
+
+  document.querySelector(".flip-card-back").addEventListener("click", prelucrez);
+
+  function prelucrez() {
+    if(event.target.id === "usor") {
+      obiecte[i].dificultate = 1;
+      i++;
+      if(i < obiecte.length) {
+        //console.log("Afisez!");
+        afisez();
+      } else {
+        i--;
+    }
+  } else if(event.target.id === "med") {
+      obiecte[i].dificultate = 2;
+      i++;
+      if(i < obiecte.length) {
+        afisez();
+      } else {
+        i--;
+    }
+  } else {
+      obiecte[i].dificultate = 3;
+      i++;
+      if(i < obiecte.length) {
+        afisez();
+      } else {
+        i--;
+    }
+  }
+}
+</script>
+</body>
+</html>
+```
 
 
