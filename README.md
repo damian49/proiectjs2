@@ -10,8 +10,6 @@ Există și variante informatice ale metodei, una dintre cele mai utilizate fiin
 
 Proiectul propus rezolvă o parte a unei aplicații de acest fel, respectiv componenta de front-end.
 
-<img src="/imagini/app.png" alt="Aplicatia" width="300" height="412">
-
 ![Img. 1](/imagini/app.png)
 
 
