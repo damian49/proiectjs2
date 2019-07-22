@@ -212,7 +212,7 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 			margin-top:30px;
 			background-color: transparent;
 			width: 370px;
-			height: 430px;
+			height: 410px;
 			perspective: 1000px;
 		}
 
@@ -263,13 +263,14 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 				<div class="flip-card-back">
 					<img id="pozaback" src="imagini/img1.jpg">
 					<h1>Automobil electric</h1> 
-					<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>
 					<audio controls>
 						<source id="sursa" src="audio/audio1.mp3" type="audio/mpeg">
 					</audio>
 				</div>
 			</div>
 		</div>
+		<p><button id="usor">Ușor</button> <button id="med">Mediu</button> 
+			<button id="greu">Greu</button></p>
 	</div>
 </body>
 </html>
