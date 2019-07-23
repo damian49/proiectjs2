@@ -327,12 +327,15 @@ După realizarea acestor pași, codul aplicației este următorul:
 			<button id="greu">Greu</button></p>
 	</div>
 	<script>
+	        //  Sursa de date
 		var obiecte = [
     {id: 1, dificultate: 3, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "audio/audio1.mp3"},
     {id: 2, dificultate: 3, imagine: "imagini/img2.jpg", numero: "Trotinetă electrică", numeen: "Electric scooter", sunet: "audio/audio1.mp3"},
     {id: 3, dificultate: 3, imagine: "imagini/img3.jpg", numero: "Bicicletă", numeen: "Bycicle", sunet: "audio/audio1.mp3"}
   ];
   		var i = 0;
+		
+		//  Siruri de caractere avand zone care vor fi inlocuite cu valori efective din sursa de date 
   		var cfront = '<img src="{pozafront}">';
   		    cfront += '<h1>{titluen}</h1>';
 
@@ -341,7 +344,7 @@ După realizarea acestor pași, codul aplicației este următorul:
   		    cback += '<audio controls><source id="sursa"';
   		    cback += ' src="{sunet}" type="audio/mpeg"></audio>';
 
-  		afisez();
+  		afisez();  // Se apeleaza pentru a vedea pe ecran primul card
 
   		function afisez() {
     //  preiau obiectul avand class="flip-card-front"
