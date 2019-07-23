@@ -189,7 +189,7 @@ Ca urmare s-a modificat pagina astfel:
 ```
 
 ## Realizarea variantei "statice"
-La realizarea unei pagini dinamice, având conținuturi care provin din accesarea altor resurse (baze de date de cele mai multe ori) se începe prin realizarea unei variante statice. În această variantă se pot rezolva toate problemele legate de stilizare. Pasul următor este inserarea unui script JavaScript care realizează ansamblul de funcționalități dorite. În principiu acest script va conține funcții care vor fi rulate în momentul declanșării unui anumit eveniment.
+La realizarea unei pagini dinamice, având conținuturi care provin din accesarea altor resurse (baze de date de cele mai multe ori) se începe prin realizarea unei variante statice. În această variantă se pot rezolva toate problemele legate de stilizare. Pasul următor este inserarea unui script JavaScript care realizează ansamblul de funcționalități dorite. În principiu acest script va conține funcții care vor fi rulate în momentul declanșării anumitor evenimente (click cu mausul de exemplu).
 ```
 <!DOCTYPE html>
 <html>
