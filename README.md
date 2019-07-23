@@ -287,7 +287,8 @@ Rezultat:
 Din examinarea codului se observă că, pentru a funcționa, pagina accesează fișierul */imagini/img1.jpg* și *audio/audio1.mp3*. Acestea sunt disponibile pe site, în subdirectoarele */imagini* și */audio*.
 
 ## Realizarea variantei dinamice a paginii
-După testarea variantei statice, pasul următor este realizarea unei variante dinamice a paginii. Aceasta presupune crearea unei surse de date (de regulă un șir de obiecte), crearea unor șiruri de caractere care conțin pîrți care vor fi substituite cu valorile efective și scrierea codului care asigură înlocuirea dinamică a părților din document cu valorile efective, furnizate de sursa de date, și trecerea la articolul următor.
+După testarea variantei statice, pasul următor este realizarea unei variante dinamice a paginii. Aceasta presupune crearea unei surse de date (de regulă un șir de obiecte), crearea unor șiruri de caractere care conțin părți care vor fi substituite cu valorile efective și scrierea codului care asigură înlocuirea dinamică a părților din document cu valorile efective, furnizate de sursa de date, urmată de trecerea la articolul următor.
+
 După realizarea acestor pași, codul aplicației este următorul:
 
 ```
@@ -399,7 +400,7 @@ După realizarea acestor pași, codul aplicației este următorul:
 </html>
 ```
 
-Pentru a reduce dimensiunea paginii, stilurile din secțiunea &lt;head> au fost plasate într-un fișier separat denumit stil.css, plasat în subdirectorul css. Conținutul acestuia este evident, următorul:
+Pentru a reduce dimensiunea paginii, stilurile din secțiunea *&lt;head>* au fost plasate într-un fișier separat denumit *stil.css*, plasat în subdirectorul *css*. Conținutul acestuia este evident, următorul:
 ```
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -456,12 +457,12 @@ h1, p {
 }
 ```
 
-Observație: În acest moment sunt posibile o serie de corectări și ameliorări ale aplicației. De exemplu se poate modifica aplicația astfel încât în elementul &lt;h1> să se afișeze numărul de ordine al cardului curent (1 / 20, 2 / 20 ș.a.m.d). Pentru aceasta se poate defini o variabilă având ca și conținut șirul de caractere din element, dar care să aibă definită o porțiune care poate fi înlocuită folosind funcția replace(), ca în cazul conținutului cardului. Exemplu:
+Observație: În acest moment sunt posibile o serie de corectări și ameliorări ale aplicației. De exemplu se poate modifica aplicația astfel încât în elementul *&lt;h1>* să se afișeze numărul de ordine al cardului curent (1 / 20, 2 / 20 ș.a.m.d). Pentru aceasta se poate defini o variabilă având ca și conținut șirul de caractere din element, dar care să aibă definită o porțiune care poate fi înlocuită folosind funcția *replace()*, ca în cazul conținutului cardului. Exemplu:
 ```
    var sirh1 = 'Card: {nrcard} / 20';
 ```
 
-La apăsarea unuia dintre butoanele de sub card, dacă nu s-a ajuns la capătul șirului de carduri, se trece la cardul următor. În funcția *afișez()* va trebui inserată o mică secvență de cod în care șirul de caractere din elementul &lt;h1> este înlocuit cu *sirh1*, după ce în acest șir de inserează noul număr (care este *i+1*, evident!).
+La apăsarea unuia dintre butoanele de sub card, dacă nu s-a ajuns la capătul șirului de carduri, se trece la cardul următor. În funcția *afișez()* va trebui inserată o mică secvență de cod în care șirul de caractere din elementul *&lt;h1>* este înlocuit cu *sirh1*, după ce în acest șir de inserează noul număr (care este *i+1*, evident!).
 ```
    var elh1 = document.querySelector("h1");
    // Inlocuiesc in sirh1 {nrcard}
@@ -506,7 +507,7 @@ O altă îmbunătățire a aplicației ar fi plasarea scriptului JavaScript înt
 </html>
 ```
 
-Fișierul aplicatie.js va avea continutul următor:
+Fișierul *aplicatie.js* va avea continutul următor:
 ```
 var obiecte = [
 {id: 1, dificultate: 3, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "audio/audio1.mp3"},
