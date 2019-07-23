@@ -10,7 +10,7 @@ Există și variante informatice ale metodei, una dintre cele mai utilizate fiin
 
 Proiectul propus rezolvă o parte a unei aplicații de acest fel, respectiv componenta de *front-end*.
 
-![Img. 1](/imagini/app.png)
+![Img. 1](/imagini/app0.png)
 
 ## Resurse necesare
 
