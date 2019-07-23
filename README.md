@@ -35,7 +35,9 @@ Codul HTML5 folosit este:
 
 Pentru stilizare s-a folosit următorul ansamblu de reguli:
 ```
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/* The flip card container - set the width and height to whatever you want. We have added the border 
+property to demonstrate that the flip itself goes out of the box on hover (remove perspective if 
+you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
   width: 300px;
@@ -93,11 +95,13 @@ Cardul afișat ar trebui centrat în pagină. În CSS, centrarea unui element î
 .centrat {
    ...
    margin: 50px auto;
-   width: 372px;
+   width: 370px;
    ...
 }
 ```
-Cei 20px se referă la mărimea elementului margin pentru latura de sus și de jos iar auto indică browser-ului centrarea pe orizontală.
+Cei 20px se referă la mărimea elementului *margin* pentru latura de sus și de jos a blocului căruia i se aplică clasa *.centrat* iar *auto* impune centrarea pe orizontală.
+
+Parametrul *width* definește lățimea blocului (370 pixeli).
 
 Ca urmare s-a modificat pagina astfel:
 
@@ -114,13 +118,13 @@ Ca urmare s-a modificat pagina astfel:
 		}
 
 		h1, p {
-			margin: 20px auto;
+			margin: 20px auto;  /* tot centrare! */
 			text-align: center;
 		}
 
 		.container {
-			width: 372px;
 			margin: 50px auto;
+			width: 370px;
 		}
 
 		.flip-card {
