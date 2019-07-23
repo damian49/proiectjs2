@@ -189,7 +189,7 @@ Ca urmare s-a modificat pagina astfel:
 ```
 
 ## Realizarea variantei "statice"
-La realizarea unei pagini dinamice, având conținuturi care provin din accesarea altor resurse (baze de date de cele mai multe ori) se începe prin realizarea unei variante statice. În această variantă se pot rezolva toate problemele legate de stilizare. Pasul următor este înlocuirea conținuturilor care, în timpul funcționării aplicației, vor fi înlocuite, cu șiruri de forma `{nume}`. În acest mod se pregătește scrierea codului JavaScript.
+La realizarea unei pagini dinamice, având conținuturi care provin din accesarea altor resurse (baze de date de cele mai multe ori) se începe prin realizarea unei variante statice. În această variantă se pot rezolva toate problemele legate de stilizare. Pasul următor este inserarea unui script JavaScript care realizează ansamblul de funcționalități dorite. În principiu acest script va conține funcții care vor fi rulate în momentul declanșării unui anumit eveniment.
 ```
 <!DOCTYPE html>
 <html>
@@ -208,8 +208,8 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 		}
 
 		.container {
-			width: 372px;
 			margin: 50px auto;
+			width: 370px;
 		}
 
 		.flip-card {
