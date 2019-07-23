@@ -261,14 +261,14 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 		<div class="flip-card">
 			<div class="flip-card-inner">
 				<div class="flip-card-front">
-					<img id="pozafront" src="imagini/img1.jpg">
+					<img src="imagini/img1.jpg">
 					<h1>Electric car</h1>  <!-- Electric car -->
 				</div>
 				<div class="flip-card-back">
-					<img id="pozaback" src="imagini/img1.jpg">
+					<img src="imagini/img1.jpg">
 					<h1>Automobil electric</h1> 
 					<audio controls>
-						<source id="sursa" src="audio/audio1.mp3" type="audio/mpeg">
+						<source src="audio/audio1.mp3" type="audio/mpeg">
 					</audio>
 				</div>
 			</div>
@@ -307,42 +307,39 @@ După realizarea acestor pași, codul aplicației este următorul:
 		<div class="flip-card">
 			<div class="flip-card-inner">
 				<div class="flip-card-front">
-					<img id="pozafront" src="imagini/img1.jpg">
-					<h1>Electric car</h1>
+					<img src="imagini/img1.jpg">
+					<h1>Electric car</h1>  <!-- Electric car -->
 				</div>
 				<div class="flip-card-back">
-					<img id="pozaback" src="imagini/img1.jpg">
+					<img src="imagini/img1.jpg">
 					<h1>Automobil electric</h1> 
-					<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>
 					<audio controls>
-						<source id="sursa" src="audio/audio1.mp3" type="audio/mpeg">
+						<source src="audio/audio1.mp3" type="audio/mpeg">
 					</audio>
 				</div>
 			</div>
 		</div>
+		<p><button id="usor">Ușor</button> <button id="med">Mediu</button> 
+			<button id="greu">Greu</button></p>
 	</div>
 	<script>
-  var obiecte = [
-    {id: 1, dificultate: 1, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "voce/sunet1.mp3"},
-    {id: 2, dificultate: 1, imagine: "imagini/img2.jpg", numero: "Trotinetă electrică", numeen: "Electric scooter", sunet: "voce/sunet1.mp3"},
-    {id: 3, dificultate: 1, imagine: "imagini/img3.jpg", numero: "Bicicletă", numeen: "Bycicle", sunet: "voce/sunet1.mp3"}
+		var obiecte = [
+    {id: 1, dificultate: 3, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "audio/audio1.mp3"},
+    {id: 2, dificultate: 3, imagine: "imagini/img2.jpg", numero: "Trotinetă electrică", numeen: "Electric scooter", sunet: "audio/audio1.mp3"},
+    {id: 3, dificultate: 3, imagine: "imagini/img3.jpg", numero: "Bicicletă", numeen: "Bycicle", sunet: "audio/audio1.mp3"}
   ];
+  		var i = 0;
+  		var cfront = '<img src="{pozafront}">';
+  		    cfront += '<h1>{titluen}</h1>';
 
-  var i = 0; // Ob afisat initial
+  		var cback = '<img src="{pozaback}">';
+  		    cback += '<h1>{titluro}</h1>';
+  		    cback += '<audio controls><source id="sursa"';
+  		    cback += ' src="{sunet}" type="audio/mpeg"></audio>';
 
-  var cfront = '<img src="{pozafront}" src="">';
-  cfront += '<h1>{titluen}</h1>';
+  		afisez();
 
-  var cback = '<img src="{pozaback}">';
-  cback += '<h1>{titluro}</h1>';
-  cback += '<p><button id="usor">Ușor</button> <button id="med">Mediu</button> <button id="greu">Greu</button></p>';
-  cback += '<audio controls><source id="sursa" src="{sunet}" type="audio/mpeg"></audio>';
-
-  document.querySelector("body").onload = function() {
-    afisez();
-  };
-
-  function afisez() {
+  		function afisez() {
     //  preiau obiectul avand class="flip-card-front"
     var front = document.querySelector(".flip-card-front");
 
@@ -361,37 +358,44 @@ După realizarea acestor pași, codul aplicației este următorul:
     back.innerHTML = backH;
   }
 
-  document.querySelector(".flip-card-back").addEventListener("click", prelucrez);
+  	//  Actiuni declansate de butoane
+  	var usor = document.querySelector("#usor");
+  	usor.onclick = function(){
+  		obiecte[i].dificultate = 1;
+      	i++;
+      	if(i < obiecte.length) {
+        	//console.log("Afisez!");
+        	afisez();
+      	} else {
+        	i--;
+  		};
+  	};
 
-  function prelucrez() {
-    if(event.target.id === "usor") {
-      obiecte[i].dificultate = 1;
-      i++;
-      if(i < obiecte.length) {
-        //console.log("Afisez!");
-        afisez();
-      } else {
-        i--;
-    }
-  } else if(event.target.id === "med") {
-      obiecte[i].dificultate = 2;
-      i++;
-      if(i < obiecte.length) {
-        afisez();
-      } else {
-        i--;
-    }
-  } else {
-      obiecte[i].dificultate = 3;
-      i++;
-      if(i < obiecte.length) {
-        afisez();
-      } else {
-        i--;
-    }
-  }
-}
-</script>
+  	var mediu = document.querySelector("#med");
+  	mediu.onclick = function(){
+  		obiecte[i].dificultate = 2;
+      	i++;
+      	if(i < obiecte.length) {
+        	//console.log("Afisez!");
+        	afisez();
+      	} else {
+        	i--;
+  		};
+  	};
+
+  	var greu = document.querySelector("#greu");
+  	greu.onclick = function(){
+  		obiecte[i].dificultate = 3;
+      	i++;
+      	if(i < obiecte.length) {
+        	//console.log("Afisez!");
+        	afisez();
+      	} else {
+        	i--;
+  		};
+  	};
+
+	</script>
 </body>
 </html>
 ```
