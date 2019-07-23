@@ -284,10 +284,13 @@ Rezultat:
 
 <img src="/imagini/app01.png" alt="Img. 3">
 
-Din examinarea codului se observă că, pentru a funcționa, pagina accesează fișierul */imagini/img1.jpg* și *audio/audio1.mp3*. Acestea sunt disponibile pe site, în subdirectoarele */imagini* și */audio*.
+Din examinarea codului se observă că, pentru a funcționa, pagina accesează fișierul *imagini/img1.jpg* și *audio/audio1.mp3*. Acestea sunt disponibile pe site, în subdirectoarele */imagini* și */audio*.
 
 ## Realizarea variantei dinamice a paginii
-După testarea variantei statice, pasul următor este realizarea unei variante dinamice a paginii. Aceasta presupune crearea unei surse de date (de regulă un șir de obiecte), crearea unor șiruri de caractere care conțin părți care vor fi substituite cu valorile efective și scrierea codului care asigură înlocuirea dinamică a părților din document cu valorile efective, furnizate de sursa de date, urmată de trecerea la articolul următor.
+După testarea variantei statice, pasul următor este realizarea unei variante dinamice a paginii. Aceasta presupune de obicei parcurgerea următorilor pași:
+- crearea unei *surse de date* (de regulă un șir de obiecte JavaScript), 
+- declararea unor șiruri de caractere care conțin părți care vor fi substituite cu valorile efective și 
+- scrierea codului JavaScript care asigură înlocuirea dinamică a părților din document cu valorile efective, furnizate de sursa de date, urmată de trecerea la articolul următor.
 
 După realizarea acestor pași, codul aplicației este următorul:
 
