@@ -394,7 +394,6 @@ După realizarea acestor pași, codul aplicației este următorul:
         	i--;
   		};
   	};
-
 	</script>
 </body>
 </html>
@@ -470,4 +469,124 @@ La apăsarea unuia dintre butoanele de sub card, dacă nu s-a ajuns la capătul 
     elh1.innerHTML = elh1a;
 ```
 
+O altă îmbunătățire a aplicației ar fi plasarea scriptului JavaScript într-un fișier separat. Pagina scrisă va deveni mult mai mică:
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Card</title>
+	<link rel="stylesheet" type="text/css" href="css/stil.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Card: 1 / 20</h1>
+		<p>Hover over the image below:</p>
+		<div class="flip-card">
+			<div class="flip-card-inner">
+				<div class="flip-card-front">
+					<img src="imagini/img1.jpg">
+					<h1>Electric car</h1>  <!-- Electric car -->
+				</div>
+				<div class="flip-card-back">
+					<img src="imagini/img1.jpg">
+					<h1>Automobil electric</h1> 
+					<audio controls>
+						<source src="audio/audio1.mp3" type="audio/mpeg">
+					</audio>
+				</div>
+			</div>
+		</div>
+		<p><button id="usor">Ușor</button> <button id="med">Mediu</button> 
+			<button id="greu">Greu</button></p>
+	</div>
+	<script src="js/aplicatie.js"></script>
+</body>
+</html>
+```
+
+Fișierul aplicatie.js va avea continutul următor:
+```
+var obiecte = [
+{id: 1, dificultate: 3, imagine: "imagini/img1.jpg", numero: "Autoturism electric", numeen: "Electric car", sunet: "audio/audio1.mp3"},
+{id: 2, dificultate: 3, imagine: "imagini/img2.jpg", numero: "Trotinetă electrică", numeen: "Electric scooter", sunet: "audio/audio1.mp3"},
+{id: 3, dificultate: 3, imagine: "imagini/img3.jpg", numero: "Bicicletă", numeen: "Bycicle", sunet: "audio/audio1.mp3"}
+];
+
+var i = 0;
+
+var cfront = '<img src="{pozafront}"><h1>{titluen}</h1>';
+
+var cback = '<img src="{pozaback}">';
+cback += '<h1>{titluro}</h1>';
+cback += '<audio controls><source id="sursa"';
+cback += ' src="{sunet}" type="audio/mpeg"></audio>';
+
+var sirh1 = 'Card: {nrcard} / 20';
+
+afisez(); //  Afișarea initiala, cardul 1/20
+
+function afisez() {
+    //  preiau obiectul avand class="flip-card-front"
+    var front = document.querySelector(".flip-card-front");
+
+    // Inlocuiesc in cfront {titluen} si {pozafront}
+    var frontH = cfront.replace("{titluen}", obiecte[i].numeen)
+                       .replace("{pozafront}", obiecte[i].imagine);
+    front.innerHTML = frontH;
+
+    //  preiau obiectul avand class="flip-card-back"
+    var back = document.querySelector(".flip-card-back");
+
+    // Inlocuiesc in cback {titluro} si {pozafront}
+    var backH = cback.replace("{titluro}", obiecte[i].numero)
+                     .replace("{pozaback}", obiecte[i].imagine)
+                     .replace("{sunet}", obiecte[i].sunet);
+    back.innerHTML = backH;
+
+    //  preiau elementul <h1>
+    var elh1 = document.querySelector("h1");
+    // Inlocuiesc in sirh1 {nrcard}
+    var elh1a = sirh1.replace("{nrcard}", i+1);
+    elh1.innerHTML = elh1a;
+}
+
+//  Actiuni declansate de butoane
+var usor = document.querySelector("#usor");
+usor.onclick = function(){
+  obiecte[i].dificultate = 1;
+  i++;
+  if(i < obiecte.length) {
+    	//console.log("Afisez!");
+    	afisez();
+    } else {
+    	i--;
+    };
+};
+
+var mediu = document.querySelector("#med");
+mediu.onclick = function(){
+ obiecte[i].dificultate = 2;
+ i++;
+ if(i < obiecte.length) {
+  	//console.log("Afisez!");
+  	afisez();
+  } else {
+  	i--;
+  };
+};
+
+var greu = document.querySelector("#greu");
+greu.onclick = function(){
+ obiecte[i].dificultate = 3;
+ i++;
+ if(i < obiecte.length) {
+  	//console.log("Afisez!");
+  	afisez();
+  } else {
+  	i--;
+  };
+};
+```
 *Și așa mai departe...*
