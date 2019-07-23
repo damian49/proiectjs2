@@ -282,7 +282,7 @@ La realizarea unei pagini dinamice, având conținuturi care provin din accesare
 
 Rezultat:
 
-<img src="/imagini/app1.png" alt="Img. 3">
+<img src="/imagini/app01.png" alt="Img. 3">
 
 Din examinarea codului se observă că, pentru a funcționa, pagina accesează fișierul */imagini/img1.jpg* și *audio/audio1.mp3*. Acestea sunt disponibile pe site, în subdirectoarele */imagini* și */audio*.
 
