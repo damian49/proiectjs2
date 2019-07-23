@@ -352,7 +352,7 @@ După realizarea acestor pași, codul aplicației este următorul:
     var back = document.querySelector(".flip-card-back");
 
     // Inlocuiesc in cback {titluro} si {pozafront}
-    backH = cback.replace("{titluro}", obiecte[i].numero)
+    var backH = cback.replace("{titluro}", obiecte[i].numero)
                  .replace("{pozaback}", obiecte[i].imagine)
                  .replace("{sunet}", obiecte[i].sunet);
     back.innerHTML = backH;
@@ -400,4 +400,74 @@ După realizarea acestor pași, codul aplicației este următorul:
 </html>
 ```
 
+Pentru a reduce dimensiunea paginii, stilurile din secțiunea &lt;head> au fost plasate într-un fișier separat denumit stil.css, plasat în subdirectorul css. Conținutul acestuia este evident, următorul:
+```
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
 
+h1, p {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.container {
+	width: 372px;
+	margin: 50px auto;
+}
+
+.flip-card {
+	margin-top:30px;
+	background-color: transparent;
+	width: 370px;
+	height: 410px;
+	perspective: 1000px;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.flip-card-front {
+	background-color: #ccc;
+	color: black;
+}
+
+.flip-card-back {
+	background-color: #2980b9;
+	color: white;
+	transform: rotateY(180deg);
+}
+```
+
+Observație: În acest moment sunt posibile o serie de corectări și ameliorări ale aplicației. De exemplu se poate modifica aplicația astfel încât în elementul &lt;h1> să se afișeze numărul de ordine al cardului curent (1 / 20, 2 / 20 ș.a.m.d). Pentru aceasta se poate defini o variabilă având ca și conținut șirul de caractere din element, dar care să aibă definită o porțiune care poate fi înlocuită folosind funcția replace(), ca în cazul conținutului cardului. Exemplu:
+```
+   var sirh1 = 'Card: {nrcard} / 20';
+```
+
+La apăsarea unuia dintre butoanele de sub card, dacă nu s-a ajuns la capătul șirului de carduri, se trece la cardul următor. În funcția *afișez()* va trebui inserată o mică secvență de cod în care șirul de caractere din elementul &lt;h1> este înlocuit cu *sirh1*, după ce în acest șir de inserează noul număr (care este *i+1*, evident!).
+```
+   var elh1 = document.querySelector("h1");
+   // Inlocuiesc in sirh1 {nrcard}
+   var elh1a = sirh1.replace("{nrcard}", i+1);
+    elh1.innerHTML = elh1a;
+```
+
+*Și așa mai departe...*
