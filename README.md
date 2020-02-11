@@ -92,9 +92,9 @@ Din ele s-a asamblat prima versiune a aplicației, *card1.html*. Rezultat:
 Cardul afișat ar trebui centrat în pagină. În CSS, centrarea unui element în cadrul blocului în care este afișat se realizează folosind proprietatea *margin*:
 
 ```
-.centrat {
+.container {
    ...
-   margin: 50px auto;
+   margin: 20px auto;
    width: 370px;
    ...
 }
