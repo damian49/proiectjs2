@@ -99,7 +99,7 @@ Cardul afișat ar trebui centrat în pagină. În CSS, centrarea unui element î
    ...
 }
 ```
-Cei 20px se referă la mărimea elementului *margin* pentru latura de sus și de jos a blocului căruia i se aplică clasa *.centrat* iar *auto* impune centrarea pe orizontală.
+Cei *20px* se referă la mărimea elementului *margin* pentru latura de sus și de jos a blocului căruia i se aplică clasa *.centrat* iar *auto* impune centrarea pe orizontală.
 
 Parametrul *width* definește lățimea blocului (370 pixeli).
 
